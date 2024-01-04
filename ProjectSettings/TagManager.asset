@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - UI_ROOT
+  - TASK_VIEW_PANEL
   layers:
   - Default
   - TransparentFX

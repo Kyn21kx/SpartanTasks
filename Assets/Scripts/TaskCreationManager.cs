@@ -4,9 +4,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 
 public class TaskCreationManager : MonoBehaviour {
-
 	[SerializeField]
 	private TMP_InputField titleText;
 
@@ -85,6 +85,9 @@ public class TaskCreationManager : MonoBehaviour {
 		}
 		//Send the task to the DB (and player prefs)
 		DataStoreManager.SaveTask(createdTask, true);
+		SpartanPopup successDialog = new SpartanPopup("Task created succesfully!", "View your tasks on the home screen, best of luck!", PopupTypes.Info);
+		PopupRenderer instance = PopupProvider.Instance.InstantiatePopup(successDialog);
+        instance.SetOnSubmitCallback(_ => SceneManager.LoadScene(SceneConstants.HOME_ID));
 	}
 
 

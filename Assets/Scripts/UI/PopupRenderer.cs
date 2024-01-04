@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using SpartanPopupEvent = UnityEngine.Events.UnityEvent<SpartanPopup>;
 
 [RequireComponent(typeof(Image))]
 public class PopupRenderer : MonoBehaviour {
@@ -14,8 +15,7 @@ public class PopupRenderer : MonoBehaviour {
     [SerializeField]
     private Image backgroundPanelImage;
     public SpartanPopup Popup { get; private set; }
-	public UnityEvent<SpartanPopup> OnSubmitEvent { get; private set; } = new UnityEvent<SpartanPopup>();
-
+	public SpartanPopupEvent OnSubmitEvent { get; private set; } = new SpartanPopupEvent();
 	private void OnEnable()
 	{
 		this.backgroundPanelImage = GetComponent<Image>();
@@ -44,6 +44,7 @@ public class PopupRenderer : MonoBehaviour {
 				//Change any FG colors to match
 				break;
 			case PopupTypes.Input:
+				//For input pop ups, make sure we enable all additional input fields
 				break;
 			default:
 				break;
