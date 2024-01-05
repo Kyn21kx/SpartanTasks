@@ -1,3 +1,4 @@
+using Auxiliars;
 using System;
 using UnityEngine;
 
@@ -26,8 +27,18 @@ public struct SpartanTask {
 	public int TargetFrequency {
 		get; set;
 	} //Note: Frequency will be related to TargetDaysOfWeek if not empty
+	
+	public int CompletedCount {
+		get => completedCount;
+		set {
+			completedCount = Math.Clamp(value, 0, TargetFrequency);
+		}
+	}
+
+	private int completedCount;
+
 	public Guid Id {
-		get; private set;
+		get; set;
 	}
 	public DayOfWeek[] TargetDaysOfWeek {
 		get; set;
@@ -42,6 +53,7 @@ public struct SpartanTask {
 		this.IsCompleted = false;
 		this.TargetFrequency = targetFrequency;
 		this.TargetDaysOfWeek = targetDaysOfWeek;
+		this.completedCount = 0;
 	}
 
 

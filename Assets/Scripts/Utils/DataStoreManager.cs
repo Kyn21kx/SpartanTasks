@@ -20,6 +20,7 @@ public static class DataStoreManager {
 		{
 			Commit();
 		}
+		Debug.Log($"Saved task with id: {task.Id}");
 	}
 
 	private static void SendUpdateTasks()
@@ -40,7 +41,8 @@ public static class DataStoreManager {
 		string jsonDict = PlayerPrefs.GetString(ALL_TASKS_DICT);
 		if (string.IsNullOrEmpty(jsonDict))
 		{
-			throw new Exception("No tasks were found in the database, can't get info");
+			Debug.LogWarning("No tasks were found in the database, can't get info");
+			return new Dictionary<Guid, SpartanTask>();
 		}
 		var dictFromPrefs = JsonParser.FromJson<Dictionary<Guid, SpartanTask>>(jsonDict);
 		for (int i = 0; i < dictFromPrefs.Count; i++)

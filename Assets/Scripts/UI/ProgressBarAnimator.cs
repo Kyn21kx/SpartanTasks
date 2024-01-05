@@ -16,6 +16,7 @@ public class ProgressBarAnimator : MonoBehaviour {
 
     private const float SPEED = 0.5f;
     private const float DELAYED_SPEED = SPEED / 2f;
+    private const int SIGNIFICANT_FIGURES = 3;
     private float targetValue;
     public bool IsAnimating {  get; private set; }
     public bool IsAnimationFinished => delayedForeground.fillAmount >= targetValue && foreground.fillAmount >= targetValue;
@@ -25,6 +26,7 @@ public class ProgressBarAnimator : MonoBehaviour {
         delayedForeground.fillAmount = 0;
         foreground.fillAmount = 0;
         this.IsAnimating = false;
+        this.percentageText.text = "0%";
     }
 
     private void Update () {
@@ -42,7 +44,7 @@ public class ProgressBarAnimator : MonoBehaviour {
         if (percentageText == null) return;
         //Note: this could be a lerp, but for now this will do
         float percentage = delayedForeground.fillAmount * 100f;
-        this.percentageText.text = $"{SpartanMath.RoundToSignificantFigures(percentage, 3)}%";
+        this.percentageText.text = $"{SpartanMath.RoundToSignificantFigures(percentage, SIGNIFICANT_FIGURES)}%";
     }
 
     public void StartAnimation(float targetValue, float maxPossibleValue)

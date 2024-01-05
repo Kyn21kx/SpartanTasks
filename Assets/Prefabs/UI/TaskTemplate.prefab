@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Done
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b820ead29c6cef841b0bdb43e9cf82a3, type: 2}
+  m_sharedMaterial: {fileID: 5171391653451226651, guid: b820ead29c6cef841b0bdb43e9cf82a3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93,8 +93,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 1870820616296811657}
   - component: {fileID: 1870820616296811659}
   - component: {fileID: 1870820616296811658}
+  - component: {fileID: -1853908068173024437}
   m_Layer: 5
   m_Name: TaskTemplate
   m_TagString: Untagged
@@ -230,10 +231,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 39.95
+  m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -272,6 +273,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &-1853908068173024437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870820616296811656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2daa27a6fd66f1d4d9477129844f7841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 1870820616296811658}
+  progressBar: {fileID: 1870820615838081510}
 --- !u!1 &1870820617020969534
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,8 +324,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 84.21532, y: -24.600002}
-  m_SizeDelta: {x: 83.5029, y: 29.2}
+  m_AnchoredPosition: {x: 71.84822, y: -24.600002}
+  m_SizeDelta: {x: 58.7687, y: 29.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1870820617020969522
 CanvasRenderer:
@@ -393,7 +408,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1870820617020969521}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -1853908068173024437}
+        m_TargetAssemblyTypeName: TemplatedTask, Assembly-CSharp
+        m_MethodName: CompleteTaskForToday
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &5459213151604490677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -496,3 +523,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5923772962821333078, guid: 77203d6ef0a5b5245a158c43c27e3d17, type: 3}
   m_PrefabInstance: {fileID: 5459213151604490677}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1870820615838081510 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5923772962821333075, guid: 77203d6ef0a5b5245a158c43c27e3d17, type: 3}
+  m_PrefabInstance: {fileID: 5459213151604490677}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 414f1adbeccfeaa45b54cd0e5a2c5295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
